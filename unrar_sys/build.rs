@@ -14,6 +14,7 @@ fn main() {
         .cpp(true) // Switch to C++ library compilation.
         .opt_level(2)
         .warnings(false)
+        .flag_if_supported("-std=c++11")
         .flag_if_supported("-fPIC")
         .flag_if_supported("-Wno-switch")
         .flag_if_supported("-Wno-parentheses")
@@ -42,7 +43,6 @@ fn main() {
         .file("vendor/unrar/arcread.cpp")
         .file("vendor/unrar/unicode.cpp")
         .file("vendor/unrar/system.cpp")
-        .file("vendor/unrar/isnt.cpp")
         .file("vendor/unrar/crypt.cpp")
         .file("vendor/unrar/crc.cpp")
         .file("vendor/unrar/rawread.cpp")
