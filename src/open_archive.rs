@@ -334,10 +334,10 @@ impl<M: ProcessMode> Internal<M> {
         p1: native::LPARAM,
         p2: native::LPARAM,
     ) -> c_int {
-        println!(
-            "msg: {}, user_data: {}, p1: {}, p2: {}",
-            msg, user_data, p1, p2
-        );
+        // println!(
+        //     "msg: {}, user_data: {}, p1: {}, p2: {}",
+        //     msg, user_data, p1, p2
+        // );
         if user_data == 0 {
             return 0;
         }
