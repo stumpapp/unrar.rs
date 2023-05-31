@@ -21,8 +21,8 @@ use libc::{c_char, c_int, c_uchar, c_uint, wchar_t};
 #[cfg(all(windows, target_env = "msvc"))]
 mod env {
     pub use {
-        winapi::shared::minwindef::{LPARAM, UINT},
-        winapi::shared::ntdef::LONG,
+        winapi::shared::minwindef::{INT, LPARAM, UINT},
+        winapi::shared::ntdef::{LONG, UCHAR},
     };
 }
 
@@ -117,7 +117,9 @@ pub type ProcessDataProc = extern "C" fn(*mut c_uchar, c_int) -> c_int;
 pub type Callback = extern "C" fn(UINT, LPARAM, LPARAM, LPARAM) -> c_int;
 
 #[repr(C)]
-pub struct Handle { _private: [u8; 0] }
+pub struct Handle {
+    _private: [u8; 0],
+}
 
 // ----------------- STRUCTS ----------------- //
 
