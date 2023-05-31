@@ -4,6 +4,7 @@ fn main() {
     if cfg!(windows) {
         println!("cargo:rustc-flags=-lpowrprof");
         println!("cargo:rustc-link-lib=shell32");
+        println!("cargo:rustc-link-lib=user32");
         if cfg!(target_env = "gnu") {
             println!("cargo:rustc-link-lib=pthread");
         }
@@ -43,6 +44,7 @@ fn main() {
         .file("vendor/unrar/arcread.cpp")
         .file("vendor/unrar/unicode.cpp")
         .file("vendor/unrar/system.cpp")
+        .file("vendor/unrar/isnt.cpp")
         .file("vendor/unrar/crypt.cpp")
         .file("vendor/unrar/crc.cpp")
         .file("vendor/unrar/rawread.cpp")
