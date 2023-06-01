@@ -11,7 +11,9 @@ fn main() {
     } else {
         println!("cargo:rustc-link-lib=pthread");
     }
-    cc::Build::new()
+
+    let mut builder = cc::Build::new();
+    builder
         .cpp(true) // Switch to C++ library compilation.
         .opt_level(2)
         .warnings(false)
@@ -44,7 +46,6 @@ fn main() {
         .file("vendor/unrar/arcread.cpp")
         .file("vendor/unrar/unicode.cpp")
         .file("vendor/unrar/system.cpp")
-        .file("vendor/unrar/isnt.cpp")
         .file("vendor/unrar/crypt.cpp")
         .file("vendor/unrar/crc.cpp")
         .file("vendor/unrar/rawread.cpp")
@@ -78,6 +79,11 @@ fn main() {
         .file("vendor/unrar/filestr.cpp")
         .file("vendor/unrar/scantree.cpp")
         .file("vendor/unrar/dll.cpp")
-        .file("vendor/unrar/qopen.cpp")
-        .compile("libunrar.a");
+        .file("vendor/unrar/qopen.cpp");
+
+    if cfg!(windows) {
+        builder.file("vendor/unrar/isnt.cpp");
+    }
+
+    builder.compile("libunrar.a");
 }
