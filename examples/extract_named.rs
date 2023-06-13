@@ -9,12 +9,11 @@ fn main() -> UnrarResult<()> {
     let file = args.skip(1).next().unwrap_or("archive.rar".to_owned());
 
     let mut archive = Archive::new(&file).open_for_processing().unwrap();
-    println!("Looing for src/lib.rs file");
     while let Some(header) = archive.read_header() {
         let header = header?;
-        archive = if header.entry().filename.as_os_str() == "src/lib.rs" {
+        archive = if header.entry().filename.as_os_str() == "README.md" {
             let (data, rest) = header.read()?;
-            println!("found file! has len: {}", data.len());
+            println!("found README file with len: {}", data.len());
             rest
         } else {
             header.skip()?

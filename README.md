@@ -1,15 +1,15 @@
 # unrar.rs
 
-[![crates.io](https://img.shields.io/crates/v/unrar.svg)](https://crates.io/crates/unrar/)
-[![Documentation](https://docs.rs/unrar/badge.svg)](https://docs.rs/unrar/)
-![crates.io](https://img.shields.io/crates/l/unrar)
-[![Travis Build Status](https://travis-ci.org/muja/unrar.rs.svg)](https://travis-ci.org/muja/unrar.rs)
+[![crates.io](https://img.shields.io/crates/v/unrar.svg)](https://crates.io/crates/unrar)
+[![API docs](https://docs.rs/unrar/badge.svg)](https://docs.rs/unrar)
+[![build](https://github.com/muja/unrar.rs/workflows/ci/badge.svg)](https://github.com/muja/unrar.rs/actions?query=workflow%3Aci)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./README.md)
 
 High-level wrapper around the unrar C library provided by [rarlab](http://rarlab.com).
 
-This library can only *extract* and *list* archives, it cannot *create* them.
+This library can only _extract_ and _list_ archives, it cannot _create_ them.
 
-Please look inside the [examples directory](./examples) to see how to use this library.  
+Please look inside the [examples directory](./examples) to see how to use this library.
 Specifically the [**lister**](./examples/lister.rs) example is well documented and advanced!
 
 Basic example to list archive entries:
@@ -24,7 +24,7 @@ fn main() {
 }
 ```
 
-Run this example: `cargo run --example basic_list path/to/archive.rar`.  
+Run this example: `cargo run --example basic_list path/to/archive.rar`.
 You can create an archive by using the `rar` CLI: `rar a archive.rar .`
 
 # Features
